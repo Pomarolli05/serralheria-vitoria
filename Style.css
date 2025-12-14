@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-    --primary-color: #a87b05 ;
+    --primary-color: #a87b05;
     --secondary-color: #111111;
-     --text-light: #d1d5db;
+    --text-light: #d1d5db;
     --white: #ffffff;
     --max-width: 1200px;
 }
+
+/* --- Base (Mobile First) --- */
 
 * {
     padding: 0;
@@ -14,30 +16,30 @@
     box-sizing: border-box;
 }
 
-a{
+a {
     text-decoration: none;
     transition: 0.3s;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
-body{
+body {
     font-family: "Poppins", sans-serif;
     background-image: url(images/fundo.jpg);
     background-position: center center;
     background-repeat: no-repeat;
-     background-size: cover;
-    min-height: 100vh;  
+    background-size: cover;
+    min-height: 100vh;
 }
 
-nav{
+/* --- Navegação (Mobile) --- */
+
+nav {
     position: fixed;
     isolation: isolate;
     width: 100%;
-    max-width:1200px;
-    margin-inline: auto;
     z-index: 9;
 }
 
@@ -47,7 +49,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--primary-color); 
+    background-color: var(--primary-color);
 }
 
 .nav_logo a {
@@ -56,16 +58,15 @@ nav{
     gap: 10px;
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Note: O texto do logo estava com a cor do background */
 }
 
 .nav_logo img {
-    display: flex;
-    max-width: 60px; 
+    max-width: 60px;
 }
 
-.nav_logo span{
-    display: none;
+.nav_logo span {
+    display: none; /* Esconde o texto do logo no mobile */
 }
 
 .nav_menu_btn {
@@ -95,31 +96,32 @@ nav{
     transform: translateY(0);
 }
 
-.nav_links a{
+.nav_links a {
     font-size: 1.2rem;
     color: var(--white);
 }
 
-.nav_links a:hover{
+.nav_links a:hover {
     color: var(--secondary-color);
 }
 
+/* --- Header e Conteúdo Principal (Mobile) --- */
+
 .header_container {
-   max-width: var(--max-width);
-   margin-inline: auto;
-   padding-top: 70px;
-   padding-block: 5rem 2rem;
-   padding-inline: 1rem;
-   display: grid;
-   gap: 2rem; 
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-top: 70px;
+    padding-block: 5rem 2rem;
+    padding-inline: 1rem;
+    display: grid;
+    gap: 2rem;
 }
 
 .header_image img {
-    width: 100%;
+    width: 90%; /* Ajuste a largura para não quebrar no mobile */
     max-width: 600px;
-    margin-inline: 4rem 2rem;
-    display: flex;
-    
+    margin: 2rem auto; /* Centraliza a imagem no mobile */
+    display: block;
 }
 
 .header_content {
@@ -132,45 +134,50 @@ nav{
     isolation: isolate;
     max-width: fit-content;
     margin-left: auto;
+    margin-right: auto; /* Centraliza o H2 no mobile */
     margin-bottom: 1rem;
     font-size: 2rem;
     color: var(--primary-color);
-    text-align: right;
+    text-align: center; /* Centraliza o texto do H2 no mobile */
 }
 
 .header_content h2::before {
+    /* Mantenha esta regra se o efeito de linha for importante */
     content: "";
     position: absolute;
     top: 50%;
-    left: 0px;
-    width: 100%;
+    /* Ajuste para centralizar o efeito */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0; /* No mobile, escondemos a linha ou ajustamos */
     height: 2px;
     background-color: var(--white);
-    transform: translate(calc(-100% - 1rem), -50%);
 }
+/* No mobile, o efeito de linha pode ser removido ou simplificado */
 
 .header_content h1 {
-    font-size: 5rem;
+    font-size: 3.5rem; /* Reduz o tamanho da fonte para mobile */
     font-weight: 500;
     color: antiquewhite;
-    line-height: 5rem;
+    line-height: 4rem; /* Ajusta a linha para caber melhor */
 }
 
-.h1_span-1{
-    font-size: 3rem;
+.h1_span-1 {
+    font-size: 2.5rem; /* Reduz para mobile */
     color: var(--primary-color);
 }
 
-.h1_span-2{
-    font-size: 2.5rem;
+.h1_span-2 {
+    font-size: 2rem; /* Reduz para mobile */
     font-weight: 400;
     padding: 0%;
 }
 
 .header_content p {
-    font-size: 1.2rem;
-  margin-bottom: 3rem;
-  color: var(--text-light);
+    font-size: 1rem; /* Ajusta para mobile */
+    margin-bottom: 3rem;
+    color: var(--text-light);
+    padding-inline: 1rem; /* Adiciona padding para texto não grudar nas bordas */
 }
 
 .header_content .btn {
@@ -189,119 +196,156 @@ nav{
     background-color: antiquewhite;
 }
 
-@media (width >= 768px) {
-   nav {
-    position: static;
-    padding: 2rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-   }
+/* --- Blocos de Conteúdo (Mobile) --- */
 
-   .nav_header {
-    padding: 0;
-    background-color: transparent;
-   }
-
-   .nav_logo span{
-    display: flex;
-   }
-
-   .nav_menu_btn {
-    display: none;
-   }
-
-   .nav_links {
-    position: static;
-    flex-direction: row;
-    padding: 0;
-    justify-content: flex-end;
-    gap: 2rem;
-    background-color: transparent;
-    transform: none;
-   }
-
-   .nav_links a:hover{
-    color: var(--primary-color);
-   }
-
-   .header_container {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-   }
-
-   .header_image{
-    grid-area: 1/2/2/3;
-   }
-
-   .header_content {
-    text-align: left;
-   }
-}
-
-.content {
+.content, .service_content {
+    /* Corrigido: Usando margem e padding relativos para Mobile */
     font-size: 1rem;
-    align-items: center;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 3em 2rem;
+    margin: 2rem 1rem; /* Garante que ocupe a largura total, com margem nas laterais */
+    padding: 3em 1.5rem; /* Padding interno balanceado */
     text-align: center;
     color: var(--text-light);
-    margin-bottom: 2rem;
-    background-color: transparent;
     border-radius: 20px;
     background-color: #212429;
 }
 
 h3 {
-    font-size: 3rem;
+    font-size: 2rem; /* Ajusta para mobile */
     font-weight: 400;
-    align-items: center;
     color: var(--primary-color);
 }
 
-.content p {
+.content p, .service_content p {
     text-align: center;
-    align-items: center;
 }
 
-.service_content {
-    font-size: 1rem;
-    align-items: center;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 3em 2rem;
-    text-align: center;
-    color: var(--text-light);
-    margin-bottom: 2rem;
-    background-color: transparent;
-    border-radius: 20px;
-    background-color: #212429;
-}
+/* --- Formulário (Mobile) --- */
 
 .form {
-    width: 45%;
+    /* CORREÇÃO PRINCIPAL: Largura ajustada para ser Mobile First */
+    width: 90%; /* Ocupa 90% da tela para ter margem */
+    max-width: 500px; /* Limite para não ficar largo demais no mobile/tablet */
     font-size: 1rem;
-    padding: 2rem 1rem;   
+    padding: 2rem 1rem;
     background-color: #202022;
     border-radius: 32px 32px 40px 40px;
     transition: 0.3s;
-    line-height: 3;
-    margin-left: auto;
-    margin-right: auto;
-    margin: 0 auto; 
+    line-height: 1.5; /* Linha menor para economizar espaço no mobile */
+    margin: 2rem auto; /* Centraliza o formulário */
 }
 
 .li {
-     display: flex;
+    display: flex;
     align-items: center;
     gap: 8px;
-    padding: 3rem 2rem;
-     margin-bottom: 10px;
+    padding: 0; /* Remove o padding excessivo no li */
+    margin-bottom: 10px;
     border-radius: 8px;
 }
 
 .form :hover {
     box-shadow: 0px 3px 15px rgb(224, 229, 232);
+}
+
+/* --- Media Query para Desktop/Tablet (>= 768px) --- */
+
+@media (width >= 768px) {
+    
+    /* NAV (Recupera configurações originais de desktop) */
+    nav {
+        position: static;
+        padding: 2rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .nav_header {
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .nav_logo span {
+        display: flex; /* Mostra o texto do logo no desktop */
+    }
+
+    .nav_menu_btn {
+        display: none;
+    }
+
+    .nav_links {
+        position: static;
+        flex-direction: row;
+        padding: 0;
+        justify-content: flex-end;
+        gap: 2rem;
+        background-color: transparent;
+        transform: none;
+    }
+
+    .nav_links a:hover {
+        color: var(--primary-color);
+    }
+
+    /* HEADER (Layout de duas colunas) */
+    .header_container {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    .header_image {
+        grid-area: 1/2/2/3;
+    }
+
+    .header_image img {
+        margin-inline: 4rem 2rem; /* Restaura a margem lateral que você queria no desktop */
+    }
+
+    .header_content {
+        text-align: left;
+    }
+
+    .header_content h2 {
+        text-align: right;
+        margin-right: 0;
+    }
+
+    .header_content h2::before {
+        /* Restaura o efeito de linha no desktop */
+        width: 100%;
+        left: 0px;
+        transform: translate(calc(-100% - 1rem), -50%);
+    }
+    
+    .header_content h1 {
+        font-size: 5rem; /* Restaura o tamanho da fonte */
+        line-height: 5rem;
+    }
+    
+    .h1_span-1 {
+        font-size: 3rem; /* Restaura o tamanho da fonte */
+    }
+    
+    .h1_span-2 {
+        font-size: 2.5rem; /* Restaura o tamanho da fonte */
+    }
+    
+    .header_content p {
+        font-size: 1.2rem;
+    }
+
+    /* FORMULÁRIO (Configuração de desktop) */
+    .form {
+        width: 45%; /* Aplica a largura de 45% APENAS no desktop */
+        line-height: 3; /* Restaura o line-height se desejado para desktop */
+        max-width: none; /* Remove o limite máximo no desktop */
+    }
+
+    /* CONTEÚDO (Ajuste de margem se necessário) */
+    .content, .service_content {
+        margin: 2rem auto; /* Centraliza o bloco se ele tiver max-width */
+        max-width: var(--max-width);
+    }
+
 }
