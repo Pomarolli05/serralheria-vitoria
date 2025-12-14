@@ -32,6 +32,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 /* --- Navegação (Mobile) --- */
@@ -58,7 +60,7 @@ nav {
     gap: 10px;
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary-color); /* Note: O texto do logo estava com a cor do background */
+    color: var(--primary-color);
 }
 
 .nav_logo img {
@@ -66,7 +68,7 @@ nav {
 }
 
 .nav_logo span {
-    display: none; /* Esconde o texto do logo no mobile */
+    display: none;
 }
 
 .nav_menu_btn {
@@ -118,9 +120,9 @@ nav {
 }
 
 .header_image img {
-    width: 90%; /* Ajuste a largura para não quebrar no mobile */
+    width: 90%;
     max-width: 600px;
-    margin: 2rem auto; /* Centraliza a imagem no mobile */
+    margin: 2rem auto;
     display: block;
 }
 
@@ -134,50 +136,47 @@ nav {
     isolation: isolate;
     max-width: fit-content;
     margin-left: auto;
-    margin-right: auto; /* Centraliza o H2 no mobile */
+    margin-right: auto;
     margin-bottom: 1rem;
     font-size: 2rem;
     color: var(--primary-color);
-    text-align: center; /* Centraliza o texto do H2 no mobile */
+    text-align: center;
 }
 
 .header_content h2::before {
-    /* Mantenha esta regra se o efeito de linha for importante */
     content: "";
     position: absolute;
     top: 50%;
-    /* Ajuste para centralizar o efeito */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 0; /* No mobile, escondemos a linha ou ajustamos */
+    width: 0;
     height: 2px;
     background-color: var(--white);
 }
-/* No mobile, o efeito de linha pode ser removido ou simplificado */
 
 .header_content h1 {
-    font-size: 3.5rem; /* Reduz o tamanho da fonte para mobile */
+    font-size: 3.5rem;
     font-weight: 500;
     color: antiquewhite;
-    line-height: 4rem; /* Ajusta a linha para caber melhor */
+    line-height: 4rem;
 }
 
 .h1_span-1 {
-    font-size: 2.5rem; /* Reduz para mobile */
+    font-size: 2.5rem;
     color: var(--primary-color);
 }
 
 .h1_span-2 {
-    font-size: 2rem; /* Reduz para mobile */
+    font-size: 2rem;
     font-weight: 400;
     padding: 0%;
 }
 
 .header_content p {
-    font-size: 1rem; /* Ajusta para mobile */
+    font-size: 1rem;
     margin-bottom: 3rem;
     color: var(--text-light);
-    padding-inline: 1rem; /* Adiciona padding para texto não grudar nas bordas */
+    padding-inline: 1rem;
 }
 
 .header_content .btn {
@@ -199,10 +198,9 @@ nav {
 /* --- Blocos de Conteúdo (Mobile) --- */
 
 .content, .service_content {
-    /* Corrigido: Usando margem e padding relativos para Mobile */
     font-size: 1rem;
-    margin: 2rem 1rem; /* Garante que ocupe a largura total, com margem nas laterais */
-    padding: 3em 1.5rem; /* Padding interno balanceado */
+    margin: 2rem 1rem;
+    padding: 3em 1.5rem;
     text-align: center;
     color: var(--text-light);
     border-radius: 20px;
@@ -210,7 +208,7 @@ nav {
 }
 
 h3 {
-    font-size: 2rem; /* Ajusta para mobile */
+    font-size: 2rem;
     font-weight: 400;
     color: var(--primary-color);
 }
@@ -222,29 +220,112 @@ h3 {
 /* --- Formulário (Mobile) --- */
 
 .form {
-    /* CORREÇÃO PRINCIPAL: Largura ajustada para ser Mobile First */
-    width: 90%; /* Ocupa 90% da tela para ter margem */
-    max-width: 500px; /* Limite para não ficar largo demais no mobile/tablet */
+    width: 90%;
+    max-width: 500px;
     font-size: 1rem;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem; 
     background-color: #202022;
     border-radius: 32px 32px 40px 40px;
     transition: 0.3s;
-    line-height: 1.5; /* Linha menor para economizar espaço no mobile */
-    margin: 2rem auto; /* Centraliza o formulário */
+    line-height: 1.5;
+    margin: 2rem auto;
 }
 
 .li {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 0; /* Remove o padding excessivo no li */
+    padding: 0;
     margin-bottom: 10px;
     border-radius: 8px;
 }
 
 .form :hover {
     box-shadow: 0px 3px 15px rgb(224, 229, 232);
+}
+
+/* --- Footer (Mobile) --- */
+
+footer {
+    background-color: var(--secondary-color);
+}
+
+.footer-container {
+    width: 100%;
+    padding: 1.7rem 1.5rem;
+}
+
+.socialicons {
+    display: flex;
+    justify-content: center;
+}
+
+.socialicons a {
+    text-decoration: none;
+    padding: 1rem;
+    background-color: #202022;
+    margin: 1rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.socialicons a i {
+    font-size: 1.5rem;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.socialicons a:hover {
+    background-color: var(--primary-color);
+}
+
+.socialicons a:hover i {
+    opacity: 1;
+    color: var(--secondary-color);
+}
+
+.footer-list {
+    margin: 1rem 0;
+}
+
+.footer-list ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap; 
+}
+
+.footer-list ul li a {
+    color: var(--white);
+    margin: 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.footer-list ul li a:hover {
+    opacity: 1;
+}
+
+.footer-buttom {
+    background-color: #111111;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.footer-buttom p {
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+.designer {
+    opacity: 0.7;
+    font-weight: 400;
+    margin: 0 0.5rem;
 }
 
 /* --- Media Query para Desktop/Tablet (>= 768px) --- */
@@ -267,7 +348,7 @@ h3 {
     }
 
     .nav_logo span {
-        display: flex; /* Mostra o texto do logo no desktop */
+        display: flex;
     }
 
     .nav_menu_btn {
@@ -299,7 +380,7 @@ h3 {
     }
 
     .header_image img {
-        margin-inline: 4rem 2rem; /* Restaura a margem lateral que você queria no desktop */
+        margin-inline: 4rem 2rem;
     }
 
     .header_content {
@@ -312,23 +393,22 @@ h3 {
     }
 
     .header_content h2::before {
-        /* Restaura o efeito de linha no desktop */
         width: 100%;
         left: 0px;
         transform: translate(calc(-100% - 1rem), -50%);
     }
     
     .header_content h1 {
-        font-size: 5rem; /* Restaura o tamanho da fonte */
+        font-size: 5rem;
         line-height: 5rem;
     }
     
     .h1_span-1 {
-        font-size: 3rem; /* Restaura o tamanho da fonte */
+        font-size: 3rem;
     }
     
     .h1_span-2 {
-        font-size: 2.5rem; /* Restaura o tamanho da fonte */
+        font-size: 2.5rem;
     }
     
     .header_content p {
@@ -337,15 +417,14 @@ h3 {
 
     /* FORMULÁRIO (Configuração de desktop) */
     .form {
-        width: 45%; /* Aplica a largura de 45% APENAS no desktop */
-        line-height: 3; /* Restaura o line-height se desejado para desktop */
-        max-width: none; /* Remove o limite máximo no desktop */
+        width: 45%;
+        line-height: 3;
+        max-width: none;
     }
 
     /* CONTEÚDO (Ajuste de margem se necessário) */
     .content, .service_content {
-        margin: 2rem auto; /* Centraliza o bloco se ele tiver max-width */
+        margin: 2rem auto;
         max-width: var(--max-width);
     }
-
 }
